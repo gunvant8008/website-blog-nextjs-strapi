@@ -7,4 +7,22 @@
   .disabled {
     @apply opacity-50 cursor-not-allowed;
   }
+  .single-article h1 {
+    @apply text-3xl font-bold py-2;
+  }
+
+  .single-article h2 {
+    @apply text-xl font-bold py-2;
+  }
+
+  .single-article h3 {
+    @apply text-lg font-bold py-2;
+  }
+
+  .single-article pre {
+    @apply text-teal-500 bg-gray-100 p-2 my-6;
+  }
+  .single-article blockquote {
+    @apply border-l-4 border-teal-500 bg-gray-500 p-4 my-4 text-gray-100;
+  }
 }

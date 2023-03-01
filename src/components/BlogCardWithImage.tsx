@@ -10,7 +10,7 @@ interface IPropType {
 const BlogCardWithImage = ({ article }: IPropType) => {
   return (
     <div className="bg-gradient-to-r from-violet-500 to-violet-900 rounded-md flex items-center gap-x-20 h-64">
-      <Link href="#">
+      <Link href={`/article/${article.attributes.slug}`}>
         <span className="text-2xl w-2/3 text-white p-6 font-bold after:content-[''] after:bg-primary after:block after:w-16 after:h-1 after:rounded-md after:mt-2 after:ml-6">
           {article.attributes.Title}
         </span>

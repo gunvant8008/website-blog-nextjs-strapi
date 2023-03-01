@@ -55,7 +55,6 @@ const Home: NextPage<IPropTypes> = ({ categories, articles }) => {
 export default Home
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  console.log("running")
   const options: Partial<IQueryOptions> = {
     populate: ["createdBy"],
     sort: ["id:desc"],
