@@ -11,8 +11,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#53BD95",
-        "primary-dark": "#2c785c"
+        primary: "#C84B31",
+        "primary-dark": "#A13333"
       }
     },
     fontFamily: {

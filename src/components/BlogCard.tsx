@@ -8,9 +8,9 @@ interface IPropType {
 }
 const BlogCard = ({ article }: IPropType) => {
   return (
-    <div>
+    <div className="p-5 bg-gray-100 rounded-sm shadow-lg">
       <Link href={`/article/${article.attributes.Slug}`}>
-        <h1 className="text-xl text-gray-600 font-bold hover:decoration-2 hover:underline hover:cursor-pointer hover:decoration-primary">
+        <h1 className="text-xl font-bold text-gray-600 hover:decoration-2 hover:underline hover:cursor-pointer hover:decoration-primary">
           {article.attributes.Title}
         </h1>
         <div className="flex items-center my-4">

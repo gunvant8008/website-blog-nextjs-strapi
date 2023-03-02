@@ -17,8 +17,8 @@ const Tabs = ({ categories, handleOnSearch }: IPropType) => {
   }
 
   return (
-    <div className="my-8 flex md:flex-row flex-col items-center justify-between border-b-2 border-gray-100 text-gray-400 font-bold">
-      <ul className="flex gap-x-3">
+    <div className="flex flex-col items-center justify-between my-8 font-bold text-gray-400 border-b-2 border-gray-100 md:flex-row">
+      <ul className="flex gap-x-5">
         <li
           className={
             `border-b-2 rounded-sm mr-0 pb-1 ` +
@@ -51,11 +51,11 @@ const Tabs = ({ categories, handleOnSearch }: IPropType) => {
           )
         })}
       </ul>
-      <div className="flex gap-x-2 items-center">
+      <div className="flex items-center gap-x-2">
         <input
           type="text"
           placeholder="Search"
-          className="outline-dashed outline-1  px-2 py-1 ml-1"
+          className="w-[300px] px-2 py-1 ml-1 outline-dashed outline-1"
           onChange={e => handleOnSearch(e.target.value)}
         />
         <svg

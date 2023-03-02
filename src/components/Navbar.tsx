@@ -3,22 +3,22 @@ import React from "react"
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center justify-between py-6">
-      <Link className="font-bold ml-2 text-primary-dark" href="/">
+    <nav className="flex items-center justify-between py-6 border-b-2 border-dashed">
+      <Link className="ml-2 font-bold text-primary-dark" href="/">
         G.S.Labs
       </Link>
       <ul className="flex">
-        <li className="mr-6 font-medium text-gray-600">
-          <a href="#">Products</a>
+        <li className="mr-6 font-medium tracking-wide text-gray-600 hover:text-primary">
+          <a href="#">PROJECTS</a>
         </li>
-        <li className="mr-6 font-medium text-gray-600">
-          <a href="#">Pricing</a>
+        <li className="mr-6 font-medium tracking-wide text-gray-600 hover:text-primary">
+          <a href="#">BLOG</a>
         </li>
-        <li className="mr-6 font-medium text-gray-600">
-          <a href="#">Docs</a>
+        <li className="mr-6 font-medium tracking-wide text-gray-600 hover:text-primary">
+          <a href="#">LINKEDIN</a>
         </li>
-        <li className="mr-6 font-medium text-gray-600">
-          <a href="#">Company</a>
+        <li className="mr-6 font-medium tracking-wide text-gray-600 hover:text-primary">
+          <a href="#">GITHUB</a>
         </li>
       </ul>
       <ul className="flex items-center">
@@ -30,7 +30,7 @@ const Navbar = () => {
         <li className="font-medium text-gray-600">
           <a
             href="#"
-            className="bg-primary py-2 px-4 rounded-sm text-white hover:bg-primary-dark transition-all"
+            className="px-4 py-2 text-white transition-all rounded-sm bg-primary hover:bg-primary-dark"
           >
             Sign up
           </a>
