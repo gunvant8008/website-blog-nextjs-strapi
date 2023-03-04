@@ -20,33 +20,32 @@ const article = ({ article, notFound }: IPropType) => {
   return (
     <>
       <Head>
-        <title>{article.attributes.Title}</title>
+        <title>{article.attributes.title}</title>
         <meta name="description" content="Gunvant Sharma" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="my-12 grid lg:grid-cols-3 gap-12 single-article">
+      <div className="grid gap-12 my-12 lg:grid-cols-3 single-article">
         <div className="col-span-2">
-          <h1 className="text-3xl font-bold">{article.attributes.Title}</h1>
+          <h1 className="text-3xl font-bold">{article?.attributes?.title}</h1>
           <div className="flex items-center my-4">
             <div>
               <p className="mr-2 font-bold text-gray-600">
-                By: {article.attributes.createdBy?.data?.attributes.firstname}{" "}
-                {article.attributes.createdBy?.data?.attributes.lastname}{" "}
+                By: {article?.attributes?.author}{" "}
               </p>
             </div>
             <span className="text-gray-400">
-              {formatDate(article.attributes.createdAt)}
+              {formatDate(article?.attributes?.createdAt)}
             </span>
           </div>
-          <div className="text-lg text-gray-600 leading-8">
+          <div className="text-lg leading-8 text-gray-600">
             <img
               alt="image"
-              src={`http://localhost:1337${article?.attributes?.Image?.data.attributes.url}`}
+              src={article?.attributes?.image?.data?.attributes?.url}
             />
 
             <MDXRemote
-              {...(article?.attributes?.Body as MDXRemoteSerializeResult)}
+              {...(article?.attributes?.body as MDXRemoteSerializeResult)}
             />
           </div>
         </div>
@@ -59,11 +58,10 @@ const article = ({ article, notFound }: IPropType) => {
 export default article
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  console.log(query.slug)
   const queryString = qs.stringify({
-    populate: ["Image", "createdBy"],
+    populate: ["image", "createdBy"],
     filters: {
-      Slug: {
+      slug: {
         $eq: query.article
       }
     }

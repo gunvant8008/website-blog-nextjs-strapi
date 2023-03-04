@@ -6,7 +6,7 @@ export interface ICategory {
 }
 
 export interface ICategoryAttribute {
-  Title: string
+  title: string
   slug: string
 }
 
@@ -59,10 +59,11 @@ export interface IAuthor {
 }
 
 export interface IArticleAttribute {
-  Title: string
-  Body: string | MDXRemoteSerializeResult
-  Slug: string
-  Image: IImageData
+  author: string
+  title: string
+  body: string | MDXRemoteSerializeResult
+  slug: string
+  image: IImageData
   createdAt: string
   createdBy: IAuthor
   category: ICategory
@@ -79,6 +80,7 @@ export interface IQueryOptions {
   filters: any
   sort: any
   populate: any
+  populateCreatorFields?: any
   pagination: {
     page: number
     pageSize: number

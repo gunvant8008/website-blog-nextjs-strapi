@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <div className="container mx-auto font-sans">
-        <NextNProgress color="#53BD95" />
+        <NextNProgress color="#A13333" />
         <Navbar />
         <main className="pb-32">
           <Component {...pageProps} />

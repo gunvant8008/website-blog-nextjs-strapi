@@ -57,6 +57,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const options: Partial<IQueryOptions> = {
     populate: ["createdBy"],
     sort: ["id:desc"],
+    populateCreatorFields: true,
     pagination: {
       page: query.page ? +query.page : 1,
       pageSize: 5
@@ -65,7 +66,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
 
   if (query.search) {
     options.filters = {
-      Title: {
+      title: {
         $containsi: query.search
       }
     }

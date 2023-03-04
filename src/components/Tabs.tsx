@@ -45,7 +45,7 @@ const Tabs = ({ categories, handleOnSearch }: IPropType) => {
               }
             >
               <Link href={`/category/${category.attributes.slug}`}>
-                {category.attributes.Title}
+                {category.attributes.title}
               </Link>
             </li>
           )

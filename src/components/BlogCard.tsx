@@ -9,15 +9,14 @@ interface IPropType {
 const BlogCard = ({ article }: IPropType) => {
   return (
     <div className="p-5 bg-gray-100 rounded-sm shadow-lg">
-      <Link href={`/article/${article.attributes.Slug}`}>
+      <Link href={`/article/${article.attributes.slug}`}>
         <h1 className="text-xl font-bold text-gray-600 hover:decoration-2 hover:underline hover:cursor-pointer hover:decoration-primary">
-          {article.attributes.Title}
+          {article.attributes.title}
         </h1>
         <div className="flex items-center my-4">
           <div>
             <p className="mr-2 font-bold text-gray-600">
-              By: {article.attributes.createdBy?.data?.attributes.firstname}{" "}
-              {article.attributes.createdBy?.data?.attributes.lastname}{" "}
+              By: {article.attributes.author}{" "}
             </p>
           </div>
           <span className="text-gray-400">
@@ -25,8 +24,8 @@ const BlogCard = ({ article }: IPropType) => {
           </span>
         </div>
         <div>
-          {article.attributes.Body.substring(0, 200)}{" "}
-          {article.attributes.Body.length > 200 ? "..." : ""}
+          {article.attributes.body.substring(0, 200)}{" "}
+          {article.attributes.body.length > 200 ? "..." : ""}
         </div>
       </Link>
     </div>

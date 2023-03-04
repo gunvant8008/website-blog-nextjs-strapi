@@ -9,7 +9,7 @@ interface IPropType {
 
 const ArticleList = ({ articles }: IPropType) => {
   return (
-    <div className="grid lg:grid-cols-2 grid-cols-1  mt-16 gap-16 ">
+    <div className="grid grid-cols-1 gap-16 mt-16 lg:grid-cols-2 ">
       {articles.map((article, index) => {
         return (
           <div key={article.id}>
