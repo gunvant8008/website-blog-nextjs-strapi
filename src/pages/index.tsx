@@ -53,21 +53,23 @@ const Home: NextPage<IPropTypes> = ({ categories, articles }) => {
 }
 export default Home
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+export const getServerSideProps: GetServerSideProps = async context => {
+  context.res.setHeader("Cache-Control", "s-maxage=600, stale-while-revalidate")
+
   const options: Partial<IQueryOptions> = {
     populate: ["createdBy"],
     sort: ["id:desc"],
     populateCreatorFields: true,
     pagination: {
-      page: query.page ? +query.page : 1,
+      page: context.query.page ? +context.query.page : 1,
       pageSize: 5
     }
   }
 
-  if (query.search) {
+  if (context.query.search) {
     options.filters = {
       title: {
-        $containsi: query.search
+        $containsi: context.query.search
       }
     }
   }

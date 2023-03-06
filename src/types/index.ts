@@ -61,7 +61,7 @@ export interface IAuthor {
 export interface IArticleAttribute {
   author: string
   title: string
-  body: string | MDXRemoteSerializeResult
+  body: any
   slug: string
   image: IImageData
   createdAt: string

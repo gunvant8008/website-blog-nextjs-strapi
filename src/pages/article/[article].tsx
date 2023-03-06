@@ -57,12 +57,13 @@ const article = ({ article, notFound }: IPropType) => {
 
 export default article
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+export const getServerSideProps: GetServerSideProps = async context => {
+  context.res.setHeader("Cache-Control", "s-maxage=20, stale-while-revalidate")
   const queryString = qs.stringify({
     populate: ["image", "createdBy"],
     filters: {
       slug: {
-        $eq: query.article
+        $eq: context.query.article
       }
     }
   })

@@ -69,24 +69,25 @@ const Category = ({ categories, articles, slug }: IPropTypes) => {
 
 export default Category
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+export const getServerSideProps: GetServerSideProps = async context => {
+  context.res.setHeader("Cache-Control", "s-maxage=20, stale-while-revalidate")
   const options: IQueryOptions = {
     populate: ["createdBy"],
     sort: ["id:desc"],
     filters: {
       category: {
-        slug: query.category
+        slug: context.query.category
       }
     },
     pagination: {
-      page: query.page ? +query.page : 1,
+      page: context.query.page ? +context.query.page : 1,
       pageSize: 1
     }
   }
-  if (query.search) {
+  if (context.query.search) {
     options.filters = {
       Title: {
-        $containsi: query.search
+        $containsi: context.query.search
       }
     }
   }
@@ -109,7 +110,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
         items: articles.data,
         pagination: articles.meta.pagination
       },
-      slug: query.category
+      slug: context.query.category
     }
   }
 }
